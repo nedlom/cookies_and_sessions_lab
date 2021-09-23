@@ -1,0 +1,14 @@
+<h3>Cart Items:</h3>
+
+<% if session.keys.include?("cart") %>
+  <% session[:cart].each do |product| %>
+    <%= product %>
+  <% end %>
+<% end %>
+
+<%= form_tag add_path, method: "post" do %>
+  <%= label_tag :product %>
+  <%= text_field_tag :product %>
+  <br><br>
+  <%= submit_tag "add to cart" %>
+<% end %> 
